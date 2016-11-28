@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "D:\\ProgramFiles\\Android\\studioproject\\IFEApplication\\crosswalklib\\build\\intermediates\\res\\merged\\androidTest\\debug\\raw\\wifidirect_api.js",
+        "source": "D:\\ProgramFiles\\Android\\studioproject\\IFEApplication\\crosswalklib\\build\\intermediates\\bundles\\debug\\res\\raw\\wifidirect_api.js"
+    },
+    {
+        "merged": "D:\\ProgramFiles\\Android\\studioproject\\IFEApplication\\crosswalklib\\build\\intermediates\\res\\merged\\androidTest\\debug\\raw\\launch_screen_api.js",
+        "source": "D:\\ProgramFiles\\Android\\studioproject\\IFEApplication\\crosswalklib\\build\\intermediates\\bundles\\debug\\res\\raw\\launch_screen_api.js"
+    },
+    {
+        "merged": "D:\\ProgramFiles\\Android\\studioproject\\IFEApplication\\crosswalklib\\build\\intermediates\\res\\merged\\androidTest\\debug\\raw\\xwalk_100_percent.pak",
+        "source": "D:\\ProgramFiles\\Android\\studioproject\\IFEApplication\\crosswalklib\\build\\intermediates\\bundles\\debug\\res\\raw\\xwalk_100_percent.pak"
+    },
+    {
+        "merged": "D:\\ProgramFiles\\Android\\studioproject\\IFEApplication\\crosswalklib\\build\\intermediates\\res\\merged\\androidTest\\debug\\raw\\empty.wav",
+        "source": "D:\\ProgramFiles\\Android\\studioproject\\IFEApplication\\crosswalklib\\build\\intermediates\\bundles\\debug\\res\\raw\\empty.wav"
+    },
+    {
+        "merged": "D:\\ProgramFiles\\Android\\studioproject\\IFEApplication\\crosswalklib\\build\\intermediates\\res\\merged\\androidTest\\debug\\raw\\xwalk.pak",
+        "source": "D:\\ProgramFiles\\Android\\studioproject\\IFEApplication\\crosswalklib\\build\\intermediates\\bundles\\debug\\res\\raw\\xwalk.pak"
+    },
+    {
+        "merged": "D:\\ProgramFiles\\Android\\studioproject\\IFEApplication\\crosswalklib\\build\\intermediates\\res\\merged\\androidTest\\debug\\raw\\icudtl.dat",
+        "source": "D:\\ProgramFiles\\Android\\studioproject\\IFEApplication\\crosswalklib\\build\\intermediates\\bundles\\debug\\res\\raw\\icudtl.dat"
+    }
+]

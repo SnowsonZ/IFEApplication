@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "D:\\ProgramFiles\\Android\\studioproject\\IFEApplication\\crosswalklib\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-v21\\button_borderless_compat.xml",
+        "source": "D:\\ProgramFiles\\Android\\studioproject\\IFEApplication\\crosswalklib\\build\\intermediates\\bundles\\debug\\res\\drawable-v21\\button_borderless_compat.xml"
+    },
+    {
+        "merged": "D:\\ProgramFiles\\Android\\studioproject\\IFEApplication\\crosswalklib\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-v21\\button_compat.xml",
+        "source": "D:\\ProgramFiles\\Android\\studioproject\\IFEApplication\\crosswalklib\\build\\intermediates\\bundles\\debug\\res\\drawable-v21\\button_compat.xml"
+    }
+]

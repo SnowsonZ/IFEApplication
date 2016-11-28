@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="#e0FFFFFF">
+    <ImageView
+        android:layout_width="720dp"
+        android:layout_height="10dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/setting_voice1" />
+
+    <SeekBar
+        android:padding="1dp"
+        android:id="@+id/movie_control_duration"
+        android:layout_width="720dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="9dp"
+        android:layout_marginBottom="22dip"
+        android:max="100"
+        android:maxHeight="10dip"
+        android:minHeight="10dip"
+        android:progressDrawable="@drawable/settingvoicebar"
+        android:thumb="@drawable/setting_thumb1"
+        android:thumbOffset="0dip" />
+
+    <TextView
+        android:id="@+id/has_played"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@id/movie_control_duration"
+        android:layout_marginTop="30dip"
+        android:text="00:00:00"
+        android:textColor="#000000" />
+
+    <TextView
+        android:id="@+id/duration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@id/movie_control_duration"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="30dip"
+        android:text="00:00:00"
+        android:textColor="#000000" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/movie_control_duration"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="8dip"
+        android:layout_centerHorizontal="true" >
+
+        <ImageView
+            android:id="@+id/addback"
+            android:layout_width="30dip"
+            android:layout_height="25dip"
+            android:layout_marginRight="35dip"
+            android:src="@drawable/movie_control_addback" />
+        <ImageView
+            android:id="@+id/movic_control_played"
+            android:layout_width="45dip"
+            android:layout_height="45dip"
+            android:layout_marginRight="35dip"
+            android:src="@drawable/movie_control_play" />
+
+        <ImageView
+            android:id="@+id/addgo"
+            android:layout_width="30dip"
+            android:layout_height="25dip"
+            android:src="@drawable/movie_control_addgo" />
+    </LinearLayout>
+    
+    
+    <ImageView
+        android:id="@+id/light"
+        android:layout_width="22dip"
+        android:layout_height="22dip"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="24dip"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="30dip"
+        android:layout_marginRight="8dip"
+        android:background="@drawable/movie_control_light" />
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="10dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="30dip"
+        android:layout_toRightOf="@id/light"
+        android:background="@drawable/setting_voice1" />
+
+    <SeekBar
+        android:id="@+id/movie_control_bright"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="24dip"
+        android:layout_toRightOf="@id/light"
+        android:max="100"
+        android:padding="1dp"
+        android:maxHeight="10dip"
+        android:minHeight="10dip"
+        android:progressDrawable="@drawable/settingvoicebar"
+        android:thumb="@drawable/setting_thumb1"
+        android:thumbOffset="0dip"
+        />
+    
+    
+    
+   
+    <ImageView
+        android:id="@+id/right_img"
+        android:layout_width="150dp"
+        android:layout_height="10dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="30dip"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="30dip"
+        android:layout_marginLeft="8dip"
+        android:background="@drawable/setting_voice1" />
+
+    <SeekBar
+        android:padding="1dp"
+        android:id="@+id/movie_control_volume"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="24dip"
+        android:layout_alignParentRight="true"       
+        android:layout_marginRight="30dip"
+        android:max="100"
+        android:maxHeight="10dip"
+        android:minHeight="10dip"
+        android:progressDrawable="@drawable/settingvoicebar"
+        android:thumb="@drawable/setting_thumb1"
+        android:thumbOffset="0dip" />
+    
+     <ImageView
+        android:id="@+id/voice"
+        android:layout_width="22dip"
+        android:layout_height="22dip"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="24dip"
+        android:layout_toLeftOf="@id/right_img"
+        android:background="@drawable/movie_control_voice" />
+
+</RelativeLayout>

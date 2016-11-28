@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">IFEApplication</string>
+    <string name="fail_play_msg">播放视频失败，可能资源有问题或者播放器出错，点击确定退出!</string>
+    <string name="video_player_info_net_error">网络错误</string>
+    <string name="video_player_info_exists_error">该视频资源已下架</string>
+    <string name="video_ad_time">广告剩余 </string>
+    <string name="hour">小时</string>
+    <string name="minute">分</string>
+    <string name="second">秒</string>
+    <string name="login_dialog_confirm">确定</string>
+    <string name="retry">重试</string>
+</resources>
