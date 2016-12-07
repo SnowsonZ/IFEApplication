@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "D:\\ProgramFiles\\Android\\studioproject\\IFEApplication\\common\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\inform_dialog_background.png",
+        "source": "D:\\ProgramFiles\\Android\\studioproject\\IFEApplication\\common\\src\\main\\res\\drawable-mdpi\\inform_dialog_background.png"
+    },
+    {
+        "merged": "D:\\ProgramFiles\\Android\\studioproject\\IFEApplication\\common\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\ic_launcher.png",
+        "source": "D:\\ProgramFiles\\Android\\studioproject\\IFEApplication\\common\\src\\main\\res\\drawable-mdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "D:\\ProgramFiles\\Android\\studioproject\\IFEApplication\\common\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\diaolog_left2.png",
+        "source": "D:\\ProgramFiles\\Android\\studioproject\\IFEApplication\\common\\src\\main\\res\\drawable-mdpi\\diaolog_left2.png"
+    }
+]

@@ -1,0 +1,184 @@
+[
+    {
+        "outputFile": "D:\\ProgramFiles\\Android\\studioproject\\IFEApplication\\common\\build\\intermediates\\res\\merged\\release\\values\\values.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 39,
+                    "endOffset": 90
+                },
+                "from": {
+                    "file": "D:\\ProgramFiles\\Android\\studioproject\\IFEApplication\\common\\src\\main\\res\\values\\colors.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 59,
+                        "endColumn": 39,
+                        "endOffset": 94
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 4,
+                    "startColumn": 4,
+                    "startOffset": 196,
+                    "endColumn": 57,
+                    "endOffset": 249
+                },
+                "from": {
+                    "file": "D:\\ProgramFiles\\Android\\studioproject\\IFEApplication\\common\\src\\main\\res\\values\\dimens.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 92,
+                        "endColumn": 57,
+                        "endOffset": 145
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 5,
+                    "startColumn": 4,
+                    "startOffset": 254,
+                    "endColumn": 55,
+                    "endOffset": 305
+                },
+                "from": {
+                    "file": "D:\\ProgramFiles\\Android\\studioproject\\IFEApplication\\common\\src\\main\\res\\values\\dimens.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 151,
+                        "endColumn": 55,
+                        "endOffset": 202
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 6,
+                    "startColumn": 4,
+                    "startOffset": 310,
+                    "endColumn": 52,
+                    "endOffset": 358
+                },
+                "from": {
+                    "file": "D:\\ProgramFiles\\Android\\studioproject\\IFEApplication\\common\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 5,
+                        "startColumn": 4,
+                        "startOffset": 165,
+                        "endColumn": 52,
+                        "endOffset": 213
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 7,
+                    "startColumn": 4,
+                    "startOffset": 363,
+                    "endColumn": 50,
+                    "endOffset": 409
+                },
+                "from": {
+                    "file": "D:\\ProgramFiles\\Android\\studioproject\\IFEApplication\\common\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 59,
+                        "endColumn": 50,
+                        "endOffset": 105
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 8,
+                    "startColumn": 4,
+                    "startOffset": 414,
+                    "endColumn": 52,
+                    "endOffset": 462
+                },
+                "from": {
+                    "file": "D:\\ProgramFiles\\Android\\studioproject\\IFEApplication\\common\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 111,
+                        "endColumn": 52,
+                        "endOffset": 159
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 9,
+                    "startColumn": 4,
+                    "startOffset": 467,
+                    "endLine": 15,
+                    "endColumn": 12,
+                    "endOffset": 753
+                },
+                "from": {
+                    "file": "D:\\ProgramFiles\\Android\\studioproject\\IFEApplication\\common\\src\\main\\res\\values\\styles.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 4,
+                        "startOffset": 192,
+                        "endLine": 12,
+                        "endColumn": 12,
+                        "endOffset": 484
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 16,
+                    "startColumn": 4,
+                    "startOffset": 758,
+                    "endLine": 18,
+                    "endColumn": 12,
+                    "endOffset": 913
+                },
+                "from": {
+                    "file": "D:\\ProgramFiles\\Android\\studioproject\\IFEApplication\\common\\src\\main\\res\\values\\styles.xml",
+                    "position": {
+                        "startLine": 15,
+                        "startColumn": 4,
+                        "startOffset": 525,
+                        "endLine": 17,
+                        "endColumn": 12,
+                        "endOffset": 682
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 19,
+                    "startColumn": 4,
+                    "startOffset": 918,
+                    "endLine": 28,
+                    "endColumn": 12,
+                    "endOffset": 1467
+                },
+                "from": {
+                    "file": "D:\\ProgramFiles\\Android\\studioproject\\IFEApplication\\common\\src\\main\\res\\values\\styles.xml",
+                    "position": {
+                        "startLine": 19,
+                        "startColumn": 4,
+                        "startOffset": 694,
+                        "endLine": 28,
+                        "endColumn": 12,
+                        "endOffset": 1252
+                    }
+                }
+            }
+        ]
+    }
+]

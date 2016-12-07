@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/inform_layout"
+    android:layout_width="500dp"
+    android:layout_height="250dp"
+    android:background="@drawable/inform_dialog_background" >
+
+    <ImageView
+        android:id="@+id/shut_down_diaolog_left_img"
+        android:layout_width="58dip"
+        android:layout_height="58dip"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="23dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="34dp"
+        android:src="@drawable/diaolog_left2"/>
+
+    <TextView
+        android:id="@+id/shut_down_title_txt"
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_alignRight="@+id/shut_down_inform_txt"
+        android:layout_marginRight="30dp"
+        android:text="温馨提示"
+        android:textColor="#000000"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/shut_down_inform_txt"
+        android:layout_width="370dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/shut_down_diaolog_left_img"
+        android:layout_toRightOf="@+id/shut_down_diaolog_left_img"
+        android:layout_marginRight="20dp"
+        android:text="根据航空相关法律法规规定，机内Wi-Fi在飞机地面滑行，以及上升下降状态中为关闭状态，娱乐设备将会在1分钟后自动关机，请您在飞机停稳或平飞状态后重新开启设备。谢谢您的合作！"
+        android:textColor="#000000"
+        android:textSize="20sp" />
+
+</RelativeLayout>

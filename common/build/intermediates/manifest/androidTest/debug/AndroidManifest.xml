@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.fairlink.common.test" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="21" />
+
+    <instrumentation
+        android:name="android.test.InstrumentationTestRunner"
+        android:functionalTest="false"
+        android:handleProfiling="false"
+        android:label="Tests for com.fairlink.common.test"
+        android:targetPackage="com.fairlink.common.test" />
+
+    <activity
+        android:name="com.fairlink.common.ShutDownHint"
+        android:allowTaskReparenting="true"
+        android:configChanges="locale"
+        android:label="@string/app_name"
+        android:launchMode="singleInstance"
+        android:screenOrientation="behind"
+        android:theme="@style/MyDialogStyle" >
+    </activity>
+
+    <application
+        android:allowBackup="true"
+        android:label="@string/app_name"
+        android:theme="@android:style/Theme.NoTitleBar" >
+        <uses-library android:name="android.test.runner" />
+    </application>
+
+</manifest>

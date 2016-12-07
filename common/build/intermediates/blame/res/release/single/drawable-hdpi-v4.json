@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "D:\\ProgramFiles\\Android\\studioproject\\IFEApplication\\common\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\seventyfivepercent.png",
+        "source": "D:\\ProgramFiles\\Android\\studioproject\\IFEApplication\\common\\src\\main\\res\\drawable-hdpi\\seventyfivepercent.png"
+    },
+    {
+        "merged": "D:\\ProgramFiles\\Android\\studioproject\\IFEApplication\\common\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\fiftypercent.png",
+        "source": "D:\\ProgramFiles\\Android\\studioproject\\IFEApplication\\common\\src\\main\\res\\drawable-hdpi\\fiftypercent.png"
+    },
+    {
+        "merged": "D:\\ProgramFiles\\Android\\studioproject\\IFEApplication\\common\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ic_launcher.png",
+        "source": "D:\\ProgramFiles\\Android\\studioproject\\IFEApplication\\common\\src\\main\\res\\drawable-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "D:\\ProgramFiles\\Android\\studioproject\\IFEApplication\\common\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\hundredpercent.png",
+        "source": "D:\\ProgramFiles\\Android\\studioproject\\IFEApplication\\common\\src\\main\\res\\drawable-hdpi\\hundredpercent.png"
+    },
+    {
+        "merged": "D:\\ProgramFiles\\Android\\studioproject\\IFEApplication\\common\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\tenpercent.png",
+        "source": "D:\\ProgramFiles\\Android\\studioproject\\IFEApplication\\common\\src\\main\\res\\drawable-hdpi\\tenpercent.png"
+    },
+    {
+        "merged": "D:\\ProgramFiles\\Android\\studioproject\\IFEApplication\\common\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\twentyfivepercent.png",
+        "source": "D:\\ProgramFiles\\Android\\studioproject\\IFEApplication\\common\\src\\main\\res\\drawable-hdpi\\twentyfivepercent.png"
+    }
+]
