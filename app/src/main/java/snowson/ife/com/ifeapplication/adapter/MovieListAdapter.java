@@ -57,8 +57,20 @@ public class MovieListAdapter extends BaseAdapter {
         itemView.img_movie = (ImageView) convertView.findViewById(R.id.image);
         itemView.text_movie = (TextView) convertView.findViewById(R.id.name);
         final VideoListInfo info = mAll.get(position);
-        ImageUtil.setImageView(info.videoPoster, ImageUtil.SMALL, itemView.img_movie, null);
-        itemView.text_movie.setText(info.videoName);
+        ImageUtil.setImageView(info.getVideoPoster(), ImageUtil.SMALL, itemView.img_movie, null);
+        itemView.text_movie.setText(info.getVideoName());
+//        convertView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(mContext,VideoDetailActivity2.class);
+//                Bundle bundle = new Bundle();
+//                bundle.putString("params", "id=" + info.getVideoId());
+//                intent.putExtras(bundle);
+//                mContext.startActivity(intent);
+//                mContext.overridePendingTransition(0, 0);
+//                mContext.finish();
+//            }
+//        });
 
         return convertView;
     }

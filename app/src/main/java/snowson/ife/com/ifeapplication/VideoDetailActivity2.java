@@ -2,6 +2,7 @@ package snowson.ife.com.ifeapplication;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -12,13 +13,15 @@ import android.widget.Toast;
 import com.fairlink.common.BaseHttpTask.HttpTaskCallback;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import snowson.ife.com.ifeapplication.adapter.MovieListAdapter;
 import snowson.ife.com.ifeapplication.bean.VideoListInfo;
-import snowson.ife.com.ifeapplication.request.MovieDetailRequest;
-import snowson.ife.com.ifeapplication.request.MovieDetailRequest.MovieDetail;
-import snowson.ife.com.ifeapplication.request.VideoDetailByParentIdRequest;
-import snowson.ife.com.ifeapplication.request.VideoListDetailByParentIdRequest;
+import snowson.ife.com.ifeapplication.request.VideoDetailByVideoIdRequest;
+import snowson.ife.com.ifeapplication.request.VideoDetailByVideoIdRequest.MovieDetail;
+import snowson.ife.com.ifeapplication.request.VideoRecommendRequest;
+import snowson.ife.com.ifeapplication.request.VideoRelationRequest;
+import snowson.ife.com.ifeapplication.utils.ComUtil;
 import snowson.ife.com.ifeapplication.utils.ImageUtil;
 import snowson.ife.com.ifeapplication.view.HorizontalListView;
 
@@ -61,9 +64,10 @@ public class VideoDetailActivity2 extends BaseActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(VideoDetailActivity2.this, VideoDetailActivity2.class);
                 Bundle bundle = new Bundle();
-                bundle.putInt("videoId", Integer.parseInt(mDatas.get(position).videoId));
+                bundle.putString("params", "id=" + mDatas.get(position).getVideoId());
                 intent.putExtras(bundle);
                 VideoDetailActivity2.this.startActivity(intent);
+                VideoDetailActivity2.this.finish();
             }
         });
     }
@@ -127,19 +131,14 @@ public class VideoDetailActivity2 extends BaseActivity {
         }
     };
 
-    private HttpTaskCallback mMovieDetailByParentIdCallBack = new HttpTaskCallback() {
+    private HttpTaskCallback videoRecommendCallBack = new HttpTaskCallback() {
         @Override
         public void onGetResult(int requestType, Object result) {
             if(result != null) {
                 MovieDetail detail = (MovieDetail) result;
                 currentMDetail = detail;
-                new VideoListDetailByParentIdRequest(Integer.parseInt(detail.id), VideoListCallBack).execute((String)null);
-                tv_ding_num.setText(String.valueOf(detail.positiveCount));
-                tv_cai_num.setText(String.valueOf(detail.negativeCount));
-                ImageUtil.setImageView(detail.image, ImageUtil.MID, img_poster, null);
-                mTv_actor_name.setText(detail.actor);
-                mTv_video_desc.setText(detail.content);
-                mTv_name.setText(detail.name);
+                new VideoDetailByVideoIdRequest(Long.parseLong(detail.id), VideoDetailCallBack).execute((String)null);
+                new VideoRelationRequest(0, Integer.parseInt(detail.id), VideoListCallBack).execute((String)null);
             }else {
                 Toast.makeText(VideoDetailActivity2.this, "暂时无法获取视频信息", Toast.LENGTH_SHORT).show();
             }
@@ -156,14 +155,16 @@ public class VideoDetailActivity2 extends BaseActivity {
         mDatas = new ArrayList<VideoListInfo>();
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
-        boolean isComment = bundle.getBoolean("isComment");
-        int videoId = bundle.getInt("videoId");
-        if(isComment) {
-            int commentId = bundle.getInt("commentId");
-            new VideoDetailByParentIdRequest(commentId, mMovieDetailByParentIdCallBack).execute((String)null);
+        HashMap<String, String> params = ComUtil.getParams(bundle.getString("params"));
+        if(!TextUtils.isEmpty(params.get("id"))) {
+            new VideoDetailByVideoIdRequest(Long.parseLong(params.get("id")), VideoDetailCallBack).execute((String)null);
+            new VideoRelationRequest(0, Long.parseLong(params.get("id")), VideoListCallBack).execute((String)null);
+        }else if(params.get("video_detail_category").equalsIgnoreCase("video") && !TextUtils.isEmpty(params.get("video_detail_parentId"))) {
+            new VideoRecommendRequest(Long.parseLong(params.get("video_detail_parentId")), videoRecommendCallBack).execute((String)null);
+        }else if(!TextUtils.isEmpty(params.get("albumId"))) {
+            Toast.makeText(VideoDetailActivity2.this, "视频专辑", Toast.LENGTH_SHORT).show();
         }else {
-            new MovieDetailRequest(videoId, VideoDetailCallBack).execute((String)null);
-            new VideoListDetailByParentIdRequest(videoId, VideoListCallBack).execute((String)null);
+            Toast.makeText(VideoDetailActivity2.this, "暂时无法获取视频信息", Toast.LENGTH_SHORT).show();
         }
     }
 
