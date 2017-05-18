@@ -11,7 +11,6 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/common" />
             <option value="$PROJECT_DIR$/crosswalklib" />
-            <option value="$PROJECT_DIR$/playersdk" />
           </set>
         </option>
         <option name="myModules">
@@ -20,7 +19,6 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/common" />
             <option value="$PROJECT_DIR$/crosswalklib" />
-            <option value="$PROJECT_DIR$/playersdk" />
           </set>
         </option>
       </GradleProjectSettings>
