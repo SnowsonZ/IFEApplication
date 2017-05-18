@@ -1,10 +1,11 @@
 package snowson.ife.com.ifeapplication;
 
 import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.text.TextUtils;
+import android.webkit.CookieManager;
+import android.webkit.CookieSyncManager;
+import android.webkit.JavascriptInterface;
 import android.webkit.WebResourceError;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
@@ -12,17 +13,14 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Toast;
 
-import org.xwalk.core.JavascriptInterface;
-
-import snowson.ife.com.ifeapplication.utils.Constant;
+import com.fairlink.common.GlobalStorage;
 
 public class OtherActivity extends BaseActivity {
 
     private WebView webview;
     private String loadUrl;
     private OtherActivity mContext;
-    private String moduleName;
-    private String flightServiceModulePath = "";
+    private String cookieUrl;
 
     @SuppressLint("JavascriptInterface")
     @Override
@@ -32,10 +30,7 @@ public class OtherActivity extends BaseActivity {
         setContentView(R.layout.activity_other);
         Bundle bundle = getIntent().getExtras();
         loadUrl = bundle.getString("url");
-        moduleName = bundle.getString("moudleName");
-        if(moduleName.equals(Constant.FLIGHT_SERVICE_MODULE_NAME) && TextUtils.isEmpty(flightServiceModulePath)) {
-            flightServiceModulePath = loadUrl;
-        }
+        cookieUrl = bundle.getString("cookieUrl");
         webview = (WebView) findViewById(R.id.webviewother);
 
         WebSettings settings = webview.getSettings();
@@ -43,14 +38,7 @@ public class OtherActivity extends BaseActivity {
         settings.setJavaScriptEnabled(true);
         settings.setDomStorageEnabled(true);
         settings.setCacheMode(WebSettings.LOAD_NO_CACHE);
-        webview.addJavascriptInterface(new OtherPageInterface(), "otherPage");
-        webLoad();
-    }
-
-    private void webLoad() {
-
-        webview.loadUrl(loadUrl);
-
+        webview.addJavascriptInterface(new BackMainPageInterface(), "appContext");
         webview.setWebViewClient(new WebViewClient() {
 
             @Override
@@ -61,14 +49,7 @@ public class OtherActivity extends BaseActivity {
 
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                if(flightServiceModulePath.equals(loadUrl) || moduleName.equals(Constant.GAME_NAME)) {
-                    webview.loadUrl(loadUrl);
-                }else {
-                    Intent intent = new Intent();
-                    intent.putExtra("url", loadUrl);
-                    mContext.sendBroadcast(intent);
-                    finish();
-                }
+                view.loadUrl(url, null);
                 return true;
             }
 
@@ -82,22 +63,31 @@ public class OtherActivity extends BaseActivity {
                 super.onPageFinished(view, url);
             }
         });
-
-    }
-
-    public class OtherPageInterface {
-
-        @JavascriptInterface
-        public void finishPage() {
-            mContext.finish();
-        }
-
+        webLoad();
     }
 
     @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        mContext.sendBroadcast(new Intent(Constant.STATE_FLAG));
+        public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+    }
+
+    private void webLoad() {
+
+        CookieSyncManager.createInstance(this);
+        CookieManager cookieManager = CookieManager.getInstance();
+        cookieManager.setCookie(cookieUrl, "JSESSIONID=" + GlobalStorage.getInstance().getSessionId());
+        CookieSyncManager.getInstance().sync();
+        webview.loadUrl(loadUrl);
+    }
+
+    public class BackMainPageInterface {
+
+        @JavascriptInterface
+        public void backToMain() {
+            mContext.finish();
+    }
+
     }
 
 }

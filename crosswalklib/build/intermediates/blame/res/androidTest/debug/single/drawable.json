@@ -36,12 +36,12 @@
         "source": "D:\\ProgramFiles\\Android\\studioproject\\IFEApplication\\crosswalklib\\build\\intermediates\\bundles\\debug\\res\\drawable\\dropdown_label_color.xml"
     },
     {
-        "merged": "D:\\ProgramFiles\\Android\\studioproject\\IFEApplication\\crosswalklib\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\dropdown_popup_background.xml",
-        "source": "D:\\ProgramFiles\\Android\\studioproject\\IFEApplication\\crosswalklib\\build\\intermediates\\bundles\\debug\\res\\drawable\\dropdown_popup_background.xml"
-    },
-    {
         "merged": "D:\\ProgramFiles\\Android\\studioproject\\IFEApplication\\crosswalklib\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\dropdown_popup_background_up.9.png",
         "source": "D:\\ProgramFiles\\Android\\studioproject\\IFEApplication\\crosswalklib\\build\\intermediates\\bundles\\debug\\res\\drawable\\dropdown_popup_background_up.9.png"
+    },
+    {
+        "merged": "D:\\ProgramFiles\\Android\\studioproject\\IFEApplication\\crosswalklib\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\dropdown_popup_background.xml",
+        "source": "D:\\ProgramFiles\\Android\\studioproject\\IFEApplication\\crosswalklib\\build\\intermediates\\bundles\\debug\\res\\drawable\\dropdown_popup_background.xml"
     },
     {
         "merged": "D:\\ProgramFiles\\Android\\studioproject\\IFEApplication\\crosswalklib\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\ondemand_overlay.9.png",

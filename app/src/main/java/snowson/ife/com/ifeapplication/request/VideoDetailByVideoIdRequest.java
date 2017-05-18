@@ -10,14 +10,33 @@ import org.json.JSONTokener;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import snowson.ife.com.ifeapplication.request.MovieDetailRequest.MovieDetail;
-import snowson.ife.com.ifeapplication.request.MovieDetailRequest.MoviePlayerItem;
 import snowson.ife.com.ifeapplication.utils.HttpUtil;
 
-public class VideoDetailByParentIdRequest extends BaseHttpGetTask {
+public class VideoDetailByVideoIdRequest extends BaseHttpGetTask {
+
+	public static class MovieDetail {
+		public String id;
+		public String name;
+		public String director;
+		public String actor;
+		public String content;
+		public String image;
+		public String isMovice;
+		public String area;
+		public boolean canRating;
+		public String curUserRatingMsg;
+		public int positiveCount;
+		public int negativeCount;
+		public ArrayList<MoviePlayerItem> items;
+	}
 	
-	public VideoDetailByParentIdRequest(int id, HttpTaskCallback callback) {
-		super(VIDEO_DETAIL_BY_PARENT_ID_API, HttpUtil.getVideoDetailByParentId(id), new HashMap<String, String>(), callback);
+	public static class MoviePlayerItem {
+		public String no;
+		public String location;
+	}
+	
+	public VideoDetailByVideoIdRequest(long id, HttpTaskCallback callback) {
+		super(MOVIE_TV_DETAIL_API, HttpUtil.getVideoDetail(id), new HashMap<String, String>(), callback);
 		mParam.put("tags", "mobile");
 	}
 
@@ -30,15 +49,8 @@ public class VideoDetailByParentIdRequest extends BaseHttpGetTask {
 		JSONTokener parser = new JSONTokener(json);
 		MovieDetail tmp = new MovieDetail();
 		try {
-			JSONObject menu = (JSONObject) parser.nextValue();
+			JSONObject data = (JSONObject) parser.nextValue();
 
-			int code = menu.getInt("code");
-
-			if (code != 0) {
-				return null;
-			}
-
-			JSONObject data = menu.getJSONObject("data");
 
 			tmp.id = data.getString("videoId");
 			tmp.name = data.getString("videoName");
@@ -48,10 +60,10 @@ public class VideoDetailByParentIdRequest extends BaseHttpGetTask {
 			tmp.image = data.getString("videoPoster");
 			tmp.isMovice = data.getString("videoIsMovie");
 			tmp.area = data.getString("videoArea");
-			tmp.canRating = data.getBoolean("canRating");
-			tmp.curUserRatingMsg = data.getString("curUserRatingMsg");
-	        tmp.positiveCount = data.getInt("positiveCount");
-	        tmp.negativeCount = data.getInt("negativeCount");
+            tmp.canRating = data.getBoolean("canRating");
+            tmp.curUserRatingMsg = data.getString("curUserRatingMsg");
+            tmp.positiveCount = data.getInt("positiveCount");
+            tmp.negativeCount = data.getInt("negativeCount");
 			tmp.items = new ArrayList<MoviePlayerItem>();
 			JSONArray items = data.getJSONArray("itemList");
 			int len = items.length();
@@ -67,7 +79,7 @@ public class VideoDetailByParentIdRequest extends BaseHttpGetTask {
 
 			return tmp;
 		} catch (JSONException e) {
-			logger.error("MovieDetailRequest parse failed with error:" + e.getMessage());
+			logger.error("videoByVideoIdRequest parse failed with error:" + e.getMessage());
 			return null;
 		}
 	}

@@ -33,9 +33,9 @@ import snowson.ife.com.ifeapplication.exoplayerwrapper.DefaultRendererBuilder;
 import snowson.ife.com.ifeapplication.exoplayerwrapper.DemoPlayer;
 import snowson.ife.com.ifeapplication.exoplayerwrapper.HlsRendererBuilder;
 import snowson.ife.com.ifeapplication.exoplayerwrapper.Util;
-import snowson.ife.com.ifeapplication.request.MovieDetailRequest;
-import snowson.ife.com.ifeapplication.request.MovieDetailRequest.MovieDetail;
-import snowson.ife.com.ifeapplication.request.VideoListDetailByParentIdRequest;
+import snowson.ife.com.ifeapplication.request.VideoDetailByVideoIdRequest;
+import snowson.ife.com.ifeapplication.request.VideoDetailByVideoIdRequest.MovieDetail;
+import snowson.ife.com.ifeapplication.request.VideoRelationRequest;
 import snowson.ife.com.ifeapplication.utils.ImageUtil;
 import snowson.ife.com.ifeapplication.view.HorizontalListView;
 
@@ -263,9 +263,9 @@ public class VideoDetailActivity extends Activity implements DemoPlayer.Listener
 
         mDatas = new ArrayList<VideoListInfo>();
         Intent intent = getIntent();
-        int videoId = intent.getBundleExtra("data").getInt("videoId");
-        new MovieDetailRequest(videoId, VideoDetailCallBack).execute((String)null);
-        new VideoListDetailByParentIdRequest(videoId, VideoListCallBack).execute((String)null);
+        long videoId = intent.getBundleExtra("data").getLong("videoId");
+        new VideoDetailByVideoIdRequest(videoId, VideoDetailCallBack).execute((String)null);
+        new VideoRelationRequest(0, videoId, VideoListCallBack).execute((String)null);
 
         videoPath = "http://192.168.10.66/data/source/video/A_004_0030_256/1/default.m3u8";
         lastPos = IFEApplication.getInstance().getVideoPosition(videoPath);

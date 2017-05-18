@@ -14,6 +14,7 @@ import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -313,6 +314,24 @@ public class ComUtil {
             return sCookie;
         }
         return null;
+    }
+
+    /**
+     * 获取请求参数
+     * @param paramString
+     * @return
+     */
+    public static HashMap<String, String> getParams(String paramString) {
+
+        HashMap<String, String> params = new HashMap<String, String>();
+        paramString = paramString.trim().replace("?", "").split("#")[0];
+        String[] param = paramString.split("&");
+        for (int i = 0; i < param.length; i++) {
+            String[] per = param[i].split("=");
+            params.put(per[0], per[1]);
+        }
+
+        return params;
     }
 
 }

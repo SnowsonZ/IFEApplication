@@ -13,8 +13,8 @@ public class HttpUtil {
     private static final String LOGIN_MEMBER = "passenger/memberLogin";
     private static final String REGISTER = "passenger/appRegister";
 
-    private static final String VIDEO_DETAIL = "video";
-    private static final String VIDEO_LIST = "video/getRelativeVideoLists";
+    private static final String VIDEO_DETAIL = "videos";
+    private static final String VIDEO_LIST = "videos/relation";
     private static final String VIDEO_VALID_TYPE = "video/getValidVideoType";
 
     private static final String BOOK_LIST_ALL = "ebook/listAll";
@@ -78,11 +78,12 @@ public class HttpUtil {
 
     private static final String GOODS_BY_PARENT_ID = "goodsResource/getGoodsByParentId";
     private static final String GOODSLIST_BY_PARENT_ID = "goodsResource/listGoodsByParentId";
-    private static final String VIDEO_DETAIL_BY_PARENT_ID = "video/getVideoDetailByParentId";
+    private static final String VIDEO_DETAIL_BY_PARENT_ID = "videos/recommends";
     private static final String VIDEO_RATING = "video/rating";
     private static final String APPLICATION_DETAIL_BY_PARENT_ID = "application/getAppsByParentId";
     private static final String WEB_CONTENT_BY_PARENT_ID = "webcontent/getByParentId";
     private static final String WEB_CONTENT_LIST_BY_PARENT_ID = "webcontent/listByParentId";
+    private static final String NEW_SERVICE_URL = "v1/";
     
     public static String getFlightinfo() {
         return IFEApplication.getInstance().getValue("BASE_URL") + "flight/localFlightInfo";
@@ -129,12 +130,12 @@ public class HttpUtil {
 
     // 获取影视列表
     public static String getVideoList() {
-        return IFEApplication.getInstance().getValue("BASE_URL") + VIDEO_LIST ;
+        return IFEApplication.getInstance().getValue("BASE_URL") + NEW_SERVICE_URL + VIDEO_LIST ;
     }
 
     // 获取影视详情
-    public static String getVideoDetail(int id) {
-        return IFEApplication.getInstance().getValue("BASE_URL") + VIDEO_DETAIL + "/" + id;
+    public static String getVideoDetail(long id) {
+        return IFEApplication.getInstance().getValue("BASE_URL") + NEW_SERVICE_URL + VIDEO_DETAIL + "/" + id;
     }
 
     public static String getValidVideoType() {
@@ -317,8 +318,8 @@ public class HttpUtil {
         return IFEApplication.getInstance().getValue("BASE_URL") + GOODSLIST_BY_PARENT_ID;
     }
     
-    public static String getVideoDetailByParentId(int id) {
-        return IFEApplication.getInstance().getValue("BASE_URL") + VIDEO_DETAIL_BY_PARENT_ID + "/" + id;
+    public static String getVideoDetailByParentId(long parentId) {
+        return IFEApplication.getInstance().getValue("BASE_URL") + NEW_SERVICE_URL + VIDEO_DETAIL_BY_PARENT_ID + "/" + parentId;
     }
     
     public static String getVideoRating(){

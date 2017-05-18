@@ -34,8 +34,6 @@ public class MainActivity extends BaseActivity{
         setContentView(R.layout.activity_main);
         registerReceiver(mHomeKeyEventReceiver, new IntentFilter(
                 Intent.ACTION_CLOSE_SYSTEM_DIALOGS));
-        registerReceiver(mStateBackReceiver, new IntentFilter(Constant.STATE_FLAG));
-        registerReceiver(mBackMainActivity, new IntentFilter(Constant.BACK_ACTIVITY));
         mContext = this;
         mPageObject = new JsInterface();
         handler = new Handler();
@@ -72,37 +70,17 @@ public class MainActivity extends BaseActivity{
                     xWebView.getNavigationHistory().clear();
                 }
                 if(GlobalStorage.getInstance().getSessionId() == null && url.endsWith("index")) {
-//                    new HeartRequest(new BaseHttpTask.HttpTaskCallback() {
-//                        @Override
-//                        public void onGetResult(int requestType, Object result) {
-//
-//                        }
-//
-//                        @Override
-//                        public void onError(int requestType) {
-//
-//                        }
-//                    });
                     XWalkCookieManager cManager = new XWalkCookieManager();
                     String cookies = cManager.getCookie(url);
                     if(TextUtils.isEmpty(cookies)) {
                         return;
                     }
-//                    ComUtil.setCookie(cookies);
-//                    CookieSyncManager instance = CookieSyncManager.createInstance(mContext);
-//                    CookieManager cookieManager = CookieManager.getInstance();
-//                    cookieManager.setAcceptCookie(true);
                     for (String item : cookies.split(";")) {
                         if (item.contains("JSESSIONID")) {
                             isExists = false;
                             GlobalStorage.getInstance().setSessionId(item.split("=")[1]);
                         }
-//                        if (item.contains("uuid")) {
-//                            ComUtil.setCookie(item);
-//                        }
-//                        CookieManager.getInstance().setCookie(Constant.BASE_URL, item);
                     }
-//                    instance.sync();
                 }
                 if (url.endsWith("login")) {
                     GlobalStorage.getInstance().setSessionId(null);
@@ -114,7 +92,7 @@ public class MainActivity extends BaseActivity{
                 super.onLoadStarted(view, url);
             }
         });
-        xWebView.addJavascriptInterface(mPageObject, "videoDetail");
+        xWebView.addJavascriptInterface(mPageObject, "appContext");
         xWebView.load(Constant.BASE_URL, null);
     }
 
@@ -124,51 +102,24 @@ public class MainActivity extends BaseActivity{
         }
 
         @JavascriptInterface
-        public void openDetailVideo(String videoId) {
+        public void openDetailVideo(String params) {
             Intent intent = new Intent(mContext,VideoDetailActivity2.class);
             Bundle bundle = new Bundle();
-            bundle.putInt("videoId", Integer.parseInt(videoId));
+            bundle.putString("params", params);
             intent.putExtras(bundle);
             mContext.startActivity(intent);
             mContext.overridePendingTransition(0, 0);
         }
 
         @JavascriptInterface
-        public void openDetailVideoFromComment(String commentId) {
-            Bundle bundle = new Bundle();
-            bundle.putBoolean("isComment", true);
-            bundle.putInt("commentId", Integer.parseInt(commentId));
-            Intent intent = new Intent(mContext, VideoDetailActivity2.class);
-            intent.putExtras(bundle);
-            mContext.startActivity(intent);
-        }
-
-        @JavascriptInterface
-        public void openOtherPage(String url, String moudleName) {
+        public void openOtherPage(String url, String cookieUrl) {
             Intent intent = new Intent(mContext, OtherActivity.class);
             Bundle bundle = new Bundle();
             bundle.putString("url", url);
-            bundle.putString("moudleName", moudleName);
+            bundle.putString("cookieUrl", cookieUrl);
             intent.putExtras(bundle);
             mContext.startActivity(intent);
         }
-
-        private int isGame = 0;
-
-        @JavascriptInterface
-        public int getIsGame () {
-            return isGame;
-        }
-
-        @JavascriptInterface
-        public void setIsGame (int state) {
-            isGame = state;
-        }
-
-//        @JavascriptInterface
-//        public void callNative(String words) {
-//            Toast.makeText(MainActivity.this, words, Toast.LENGTH_LONG).show();
-//        }
     }
 
     @Override
@@ -214,13 +165,6 @@ public class MainActivity extends BaseActivity{
         if(mHomeKeyEventReceiver != null) {
             mContext.unregisterReceiver(mHomeKeyEventReceiver);
         }
-        if(mStateBackReceiver != null) {
-            mContext.unregisterReceiver(mStateBackReceiver);
-        }
-
-        if(mBackMainActivity != null) {
-            mContext.unregisterReceiver(mBackMainActivity);
-        }
         if (xWebView != null) {
             xWebView.onDestroy();
         }
@@ -265,24 +209,4 @@ public class MainActivity extends BaseActivity{
             }
         }
     };
-
-    private BroadcastReceiver mStateBackReceiver = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            if(mPageObject!= null && mPageObject.getIsGame() != 0) {
-                mPageObject.setIsGame(0);
-            }
-        }
-    };
-
-    private BroadcastReceiver mBackMainActivity = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            String url = intent.getExtras().getString("url");
-            xWebView.load(url, null);
-        }
-    };
-
-
-
 }
